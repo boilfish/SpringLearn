@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="com.www.course.c01.Student">
+        <property name="id" value="101"></property>
+        <property name="name" value="zhurudename"></property>
+    </bean>
+
+    <bean id="school" class="com.www.course.c01.School">
+        <property name="manyStudents" ref="student"></property>
+    </bean>
+
+    <bean id="user1" class="com.www.course.c02.xml.User">
+        <constructor-arg index="0" value="20180202"/>
+        <constructor-arg index="1" value="heheda1"/>
+        <constructor-arg index="2" value="male"/>
+        <constructor-arg index="3" value="heheda1@126.com"/>
+    </bean>
+    <bean id="user2" class="com.www.course.c02.xml.User">
+        <property name="id" value="20220202"/>
+        <property name="name" value="heheda2"/>
+        <property name="sex" value="female"/>
+        <property name="email" value="heheda2@1266.com"/>
+    </bean>
+</beans>
