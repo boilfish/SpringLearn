@@ -8,6 +8,7 @@
           <file>file://$MODULE_DIR$/src/main/resources/spring-config-aop.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/spring-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/java/com/www/course/c02/javaconfig/JavaConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring-config-jdbc.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -25,5 +26,6 @@
     <orderEntry type="library" name="spring4.3" level="project" />
     <orderEntry type="library" name="commons-logging-1.2" level="project" />
     <orderEntry type="library" name="aspectj-1.8" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.41" level="project" />
   </component>
 </module>
