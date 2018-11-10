@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--定义普通Bean-->
+    <bean id="userxml" class="com.www.course.c03.UserX"/>
+    <bean id="myAspectJ" class="com.www.course.c03.UserXAspectJ"/>
+
+    <aop:config>
+        <!--aspect是一个切面，将已经定义好的Bean转换成切面Bean-->
+        <aop:aspect id="userAspect" ref="myAspectJ">
+            <aop:pointcut id="queryUser"
+                          expression="execution(* com.www.course.c03.UserX.queryUser(..))"/>
+            <aop:before pointcut-ref="queryUser" method="before"/>
+            <aop:after pointcut-ref="queryUser" method="after"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
