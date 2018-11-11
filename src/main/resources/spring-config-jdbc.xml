@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <bean id="student" class="com.www.course.c01.Student"/>
     <bean id="school" class="com.www.course.c01.School">
@@ -27,4 +27,11 @@
     <bean id="jdbcTemplateUtil" class="com.www.course.c04.JdbcTemplateUtil">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
+
+    <!--事务管理器，依赖于数据源-->
+    <bean id ="transactionManagerJDBC" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceJDBC"/>
+    </bean>
+
+
 </beans>
