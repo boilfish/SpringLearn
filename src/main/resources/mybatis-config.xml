@@ -8,7 +8,7 @@
         <environment id="dev">
             <transactionManager type="JDBC"/>
 
-            <dataSource type="POOLED">
+            <dataSource type="UNPOOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver" />
                 <property name="url"
                           value="jdbc:mysql://192.168.43.128:3306/test
