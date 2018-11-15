@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userDAO" class="com.www.course.c06.dao.UserDAO"/>
-    <bean id="user" class="com.www.course.c06.model.User"/>
-
+    <bean id="userDAO" class="com.www.course.c09.dao.UserDAO"/>
+    <bean id="user" class="com.www.course.c09.model.User"/>
+    <bean id="card" class="com.www.course.c09.model.Card"/>
 </beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.www.course.c09.mapper.UserMapper">
+    <!--嵌套查询:通过执行另外一个 SQL 映射语句来返回预期的复杂类型。-->
+    <select id="findUserById" resultMap="CardWithUserResult">
+        select * from user where id = #{id}
+    </select>
+    <resultMap id="CardWithUserResult" type="com.www.course.c09.model.User">
+        <!--property为映射到结果的字段或属性，用来匹配vo里的名字-->
+        <!--column为数据库中的列名-->
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="email" column="email"/>
+
+        <association property="cardID" column="id" javaType="com.www.course.c09.model.Card"
+                     select="com.www.course.c09.mapper.CardNapper.findCodeById"/>
+    </resultMap>
+
+    <!--嵌套结果:使用嵌套结果映射来处理重复的联合结果的子集。-->
+    <select id="findUserById2" resultMap="CardWithUserResult2">
+        select user.*,card.code
+        from user,card
+        where user.id=card.id
+        and user.id=#{id}
+    </select>
+    <resultMap id="CardWithUserResult2" type="com.www.course.c09.model.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="email" column="email"/>
+
+        <association property="cardID" javaType="com.www.course.c09.model.Card">
+            <!--card表里的id和code-->
+            <id property="id" column="id"/>
+            <result property="code" column="code"/>
+        </association>
+    </resultMap>
+
+</mapper>
