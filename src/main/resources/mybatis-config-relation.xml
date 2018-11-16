@@ -18,5 +18,6 @@
     <mappers>
         <mapper resource="com/www/course/c09/mapper/CardMapper.xml"/>
         <mapper resource="com/www/course/c09/mapper/UserMapper.xml"/>
+        <mapper resource="com/www/course/c09/mapper/ResumeMapper.xml"/>
     </mappers>
 </configuration>

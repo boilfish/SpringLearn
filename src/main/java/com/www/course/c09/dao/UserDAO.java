@@ -20,4 +20,14 @@ public class UserDAO {
         session.close();
         return user;
     }
+    public User findUserWithResumeById(int id) throws Exception{
+        String resource="mybatis-config-relation.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession session = sqlSessionFactory.openSession();
+
+        User user = session.selectOne("com.www.course.c09.mapper.UserMapper.findUserWithResumeById",id);
+        session.close();
+        return user;
+    }
 }

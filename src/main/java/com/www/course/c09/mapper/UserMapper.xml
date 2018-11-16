@@ -38,4 +38,24 @@
         </association>
     </resultMap>
 
+    <select id="findUserWithResumeById" resultMap="UserWithResumeResult">
+        select user.*,resume.*
+        from user,resume
+        where user.id=resume.userId
+        and user.id=#{id}
+    </select>
+    <resultMap id="UserWithResumeResult" type="com.www.course.c09.model.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="email" column="email"/>
+
+        <collection property="resumeLs" ofType="com.www.course.c09.model.Resume">
+            <id property="resumeId" column="resumeId"/>
+            <result property="userId" column="userId"/>
+            <result property="resumeName" column="resumeName"/>
+            <result property="resumeDesc" column="resumeDesc"/>
+        </collection>
+    </resultMap>
+
 </mapper>

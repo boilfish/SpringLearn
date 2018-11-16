@@ -1,5 +1,7 @@
 package com.www.course.c09.model;
 
+import java.util.List;
+
 public class User {
     private int id = 20190202;
     private String name = "";
@@ -7,6 +9,8 @@ public class User {
     private String email;
 
     private Card cardID;//关联证件号
+
+    private List<Resume> resumeLs;//个人发的多份简历
 
     public int getId() {
         return id;
@@ -48,12 +52,21 @@ public class User {
         this.cardID = cardID;
     }
 
+    public List<Resume> getResumeLs() {
+        return resumeLs;
+    }
+
+    public void setResumeLs(List<Resume> resumeLs) {
+        this.resumeLs = resumeLs;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", cardID=" + cardID +
+                ", resumeLs=" + resumeLs +
                 '}';
     }
 }
+
